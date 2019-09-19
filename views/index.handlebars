@@ -1,0 +1,47 @@
+<h1>EAT DAT BURGER</h1>
+
+<div class="form-container">
+
+</div>
+
+<form class="burger-form">
+    <label for="burger-name">Enter a Burger name</label>
+    <input name="burger-name" class="burger-name" type="text">
+    <label for="devoured">ISCH DISCH DEVOURED?</label>
+    <input type="checkbox" class="devoured" name="devoured" id="">
+    <button class="submit-button">Add to burger-list</button>
+</form>
+
+<ul class="burger-list">
+    {{#each burgers}}
+    <li>{{this.burger_name}}</li>
+    {{/each}}
+</ul>
+
+<script>
+    $('.submit-button').on('click', function (e) {
+        e.preventDefault()
+
+        var burgerName = $('.burger-name').val()
+        var devoured = $('.devoured').is(":checked")
+        var devoured_int = 0
+        if (devoured) devoured_int = 1
+
+
+        $.ajax({
+            method: "POST",
+            url: "/api/addBurger",
+            data: {
+                burger_name: burgerName,
+                devoured: devoured_int
+            }
+        })
+            .then(function (data) {
+                location.reload()
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    })
+
+</script>
