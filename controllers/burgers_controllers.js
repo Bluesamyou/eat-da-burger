@@ -21,7 +21,7 @@ router.post('/api/addBurger', function (req, res) {
 router.put('/api/devourBurger/:id', function (req, res) {
     burgerFunctions.devour(req.params.id)
         .then(function () {
-            res.status(200)
+            res.status(200).end()
         })
         .catch(function (err) {
             res.status(500).send(err)

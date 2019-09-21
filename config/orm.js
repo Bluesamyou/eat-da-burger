@@ -66,9 +66,10 @@ const orm = {
 
             connection.query(queryString,
                 function (err, data) {
-                    if (err) throw reject()
+                    console.log(data)
+                    if (err) reject()
 
-                    resolve(data)
+                    resolve()
                 })
         })
     }

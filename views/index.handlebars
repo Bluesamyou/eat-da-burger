@@ -81,7 +81,7 @@
             url: 'api/devourBurger/' + id,
             method: "PUT"
         })
-            .then(function () { location.reload() })
+            .then(function () { window.location.reload() })
             .catch(function (err) { console.log(err) })
     })
 </script>
