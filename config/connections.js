@@ -2,11 +2,11 @@ const mysql = require('mysql')
 const env = require('dotenv').config()
 
 const connection = mysql.createConnection({
-    host: "localhost",
+    host: "	zf4nk2bcqjvif4in.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: "burgers_db"
+    database: "qafi0ft4xpsguo6i"
 })
 
 connection.connect(function (err) {

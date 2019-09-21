@@ -1,6 +1,4 @@
-CREATE DATABASE burgers_db;
-
-USE burgers_db;
+USE qafi0ft4xpsguo6i;
 
 CREATE TABLE burgers
 (
@@ -9,5 +7,4 @@ CREATE TABLE burgers
     burger_name VARCHAR
     (100), 
     devoured BOOLEAN
-)
-
+);
