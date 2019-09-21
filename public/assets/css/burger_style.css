@@ -112,3 +112,14 @@ label:nth-child(1){
     padding: 10px 0px;
     margin-left: 37.5%;
 }
+
+.devour-button{
+    color: white; 
+    background: orange;
+    border: none;
+    padding: 5px 20px; 
+    margin-top: 10px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-family: 'Mansalva', cursive;
+}

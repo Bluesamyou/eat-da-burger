@@ -7,7 +7,6 @@
 <circle cx="120.5" cy="6.5" r="3.5" fill="#262626"/>
 <circle cx="143.5" cy="6.5" r="3.5" fill="#262626"/>
 <circle cx="166.5" cy="6.5" r="3.5" fill="#262626"/>
-<rect x="186" y="29" width="5" height="5" rx="2.5" fill="white"/>
 <rect x="8" y="26" width="179" height="10" fill="#D77979"/>
 <path d="M123.5 47L88.426 26L158.574 26L123.5 47Z" fill="#D5D798"/>
 <path d="M100.5 47L65.426 26L135.574 26L100.5 47Z" fill="#E0E1A0"/>
