@@ -5,19 +5,48 @@
 </div>
 
 <form class="burger-form">
-    <label for="burger-name">Enter a Burger name</label>
-    <input name="burger-name" class="burger-name" type="text">
-    <label for="devoured">ISCH DISCH DEVOURED?</label>
-    <input type="checkbox" class="devoured" name="devoured" id="">
+    <div class="form-container">
+        <label for="burger-name" class="name-label">Enter a Burger name</label>
+        <input name="burger-name" class="burger-name" type="text">
+        <label for="devoured">ISCH DISCH DEVOURED?</label>
+        <input type="checkbox" class="devoured" name="devoured" id="">
+    </div>
     <button class="submit-button">Add to burger-list</button>
 </form>
 
-<ul class="burger-list">
-    {{#each burgers}}
-    <li>{{this.burger_name}}</li>
-    {{/each}}
-</ul>
+<h3>To Devour</h3>
+<div class="burger-top">
+    <img src="/img/burger-top.svg" alt="">
+</div>
+{{#each burgers}}
+{{#unless devoured}}
+<div class={{this.id}} id="not-devoured">
+    <p style="display:inline;">{{this.burger_name}}</p>
+    <button class="devour-button" data-id={{this.id}}>Devour It</button>
+</div>
+{{/unless}}
+{{/each}}
+<div class="burger-bottom">
+    <img src="/img/burger-bottom.svg" alt="">
+</div>
 
+<h3>Devoured</h3>
+
+<div class="burger-top">
+    <img src="/img/burger-top.svg" alt="">
+</div>
+<div class="devoured-list">
+    {{#each burgers}}
+    {{#if devoured}}
+    <div class={{this.id}}>
+        <p style="display:inline;">{{this.burger_name}}</p>
+    </div>
+    {{/if}}
+    {{/each}}
+</div>
+<div class="burger-bottom">
+    <img src="/img/burger-bottom.svg" alt="">
+</div>
 <script>
     $('.submit-button').on('click', function (e) {
         e.preventDefault()
@@ -44,4 +73,15 @@
             })
     })
 
+    $('.devour-button').on('click', function (e) {
+        e.preventDefault()
+        var id = $(this).attr('data-id')
+
+        $.ajax({
+            url: 'api/devourBurger/' + id,
+            method: "PUT"
+        })
+            .then(function () { location.reload() })
+            .catch(function (err) { console.log(err) })
+    })
 </script>

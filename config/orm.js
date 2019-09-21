@@ -9,19 +9,31 @@ function printQuestionMarks(num) {
     return arr.toString();
 }
 
+function objToSql(ob) {
+    var arr = [];
+    for (var key in ob) {
+        var value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
+        }
+    }
+    return arr.toString();
+}
 const orm = {
-    add: function (table, cols, values) {
+    insertOne: function (table, cols, values) {
 
         return new Promise(function (resolve, reject) {
-            var queryString = "INSERT INTO " + table;
+            var queryString = "INSERT INTO " + table
 
-            queryString += " (";
-            queryString += cols.toString();
-            queryString += ") ";
-            queryString += "VALUES (";
-            queryString += printQuestionMarks(values.length);
-            queryString += ") ";
-            console.log()
+            queryString += " ("
+            queryString += cols.toString()
+            queryString += ") "
+            queryString += "VALUES ("
+            queryString += printQuestionMarks(values.length)
+            queryString += ") "
             connection.query(queryString, values,
                 function (err, data) {
                     if (err) throw err
@@ -32,7 +44,7 @@ const orm = {
 
         })
     },
-    read_all: function (table) {
+    selectAll: function (table) {
         return new Promise(function (resolve, reject) {
             connection.query('SELECT * FROM ??', [table],
                 function (err, data) {
@@ -42,12 +54,24 @@ const orm = {
                 })
         })
     },
-    create: function (table, setCols, matches) {
+    updateOne: function (table, setval, matchField) {
         return new Promise(function (resolve, reject) {
-            connection.query(`UPDATE ?? SET ?? WHERE ?? = ?`)
+
+            var queryString = "UPDATE " + table
+
+            queryString += " SET "
+            queryString += objToSql(setval)
+            queryString += " WHERE "
+            queryString += matchField
+
+            connection.query(queryString,
+                function (err, data) {
+                    if (err) throw reject()
+
+                    resolve(data)
+                })
         })
-    },
-    delete: ""
+    }
 }
 
 module.exports = orm

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+
+body{
+    background: rgb(46, 46, 46);
+    color : rgb(224, 126, 45);
+    font-family: 'Mansalva', cursive;
+    text-align: center;
+}
+
+h1{
+    font-size : 50px;
+}
+
+.burger-form{
+    border: 2px solid white;
+    width: 80%; 
+    margin-left: 10%;
+    padding: 20px 0px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+
+
+label:nth-child(1){
+    display: inline-block;
+}
+
+.devoured {
+	-webkit-appearance: none;
+	background-color: none;
+    border: 2px solid orange;
+    	padding: 9px;
+	border-radius: 3px;
+    display: inline-block;
+    margin: 0;
+    position: relative; 
+    top: 2.5px;
+    left: 3px;
+}
+
+.devoured :active, .devoured :checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.devoured:checked {
+	background-color: none;
+	border: 2px solid orange;
+	color: orange;
+}
+
+.devoured:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: orange;
+}
+
+
+.burger-name{
+    font-family: 'Mansalva', cursive;
+    font-size : 20px;
+    text-align: center;
+    border: 2px solid orange;
+    background: none;
+    width: 60%;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px 0px;
+    color: white
+}
+
+.submit-button{
+    color: white; 
+    background: orange;
+    border: none;
+    padding: 10px 20px; 
+    margin-top: 10px;
+    border-radius: 25px;
+    font-size: 17px;
+    font-family: 'Mansalva', cursive;
+}
+
+.burger-bottom{
+    margin-bottom : 20px;
+}
+
+.burger-top{
+    position: relative; 
+    top: 15px;
+}
+.burrger-list{
+    margin: 0;
+}
+
+#not-devoured{
+    color: white;
+    border-radius: 25px;
+    background: rgb(88, 35, 35);
+    width: 25%;
+    padding: 10px 0px;
+    margin-left: 37.5%;
+}
+
+.devoured-list div{
+    color: white;
+    border-radius: 25px;
+    background: rgb(88, 35, 35);
+    width: 25%;
+    padding: 10px 0px;
+    margin-left: 37.5%;
+}

@@ -17,4 +17,15 @@ router.post('/api/addBurger', function (req, res) {
         .then(function (data) { res.status(200).end() })
         .catch(function (err) { res.status(500).end() })
 })
+
+router.put('/api/devourBurger/:id', function (req, res) {
+    burgerFunctions.devour(req.params.id)
+        .then(function () {
+            res.status(200)
+        })
+        .catch(function (err) {
+            res.status(500).send(err)
+        })
+
+})
 module.exports = router

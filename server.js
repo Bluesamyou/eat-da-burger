@@ -1,11 +1,12 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
-var routes = require("./controllers/burgers_controllers");
+const routes = require("./controllers/burgers_controllers");
+const path = require('path')
 
 const app = express()
 const PORT = process.env.port || 8000
 
-app.use(express.static('./assets'))
+app.use(express.static(__dirname + '/public/assets'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -3,7 +3,7 @@ const orm = require('../config/orm')
 burgerFunctions = {
     getAll: function () {
         return new Promise(function (resolve, reject) {
-            orm.read_all("burgers")
+            orm.selectAll("burgers")
                 .then(function (data) {
                     resolve(data)
                 })
@@ -14,12 +14,23 @@ burgerFunctions = {
     },
     addBurger: function (values) {
         return new Promise(function (resolve, reject) {
-            orm.add("burgers", ["burger_name", "devoured"], [values.burger_name, values.devoured_int])
+            orm.insertOne("burgers", ["burger_name", "devoured"], [values.burger_name, values.devoured_int])
                 .then(function (data) {
                     resolve()
                 })
                 .catch(function (err) {
 
+                    reject()
+                })
+        })
+    },
+    devour: function (id) {
+        return new Promise(function (resolve, reject) {
+            orm.updateOne("burgers", { devoured: 1 }, `id=${id}`)
+                .then(function () {
+                    resolve()
+                })
+                .catch(function (err) {
                     reject()
                 })
         })
