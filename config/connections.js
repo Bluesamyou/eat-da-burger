@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const env = require('dotenv').config()
 
 const connection = mysql.createConnection({
-    host: "	zf4nk2bcqjvif4in.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    host: "zf4nk2bcqjvif4in.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     port: 3306,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
